@@ -1,1 +1,25 @@
+# 工作流名称（显示在Actions页面）
+name: Warm(twine game build) 
 
+# 触发条件：当代码推送到任意分支时触发
+on: [push]
+
+jobs:
+  # 作业ID（自定义名称）
+  build-Game:
+    runs-on: ubuntu-latest
+    steps: 
+      # 步骤集合
+      #1.核实（在虚拟环境中克隆代码）
+      - name: check out
+        uses: actions/checkout@v4
+
+      #2.上传html文件
+      - name: Upload HTML file
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build\Warm.html
+
+      #3.部署在github page上
+      - name: depoly
+        run: actions/deploy-pages@v4
