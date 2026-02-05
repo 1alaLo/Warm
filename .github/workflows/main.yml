@@ -4,6 +4,12 @@ name: Warm(twine game build)
 # 触发条件：当代码推送到任意分支时触发
 on: [push]
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  
 jobs:
   # 作业ID（自定义名称）
   build-Game:
