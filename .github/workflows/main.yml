@@ -9,7 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  
+
 jobs:
   # 作业ID（自定义名称）
   build-Game:
@@ -19,13 +19,15 @@ jobs:
       #1.核实（在虚拟环境中克隆代码）
       - name: check out
         uses: actions/checkout@v4
-
-      #2.上传html文件
+      #2
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      #3.上传html文件
       - name: Upload HTML file
         uses: actions/upload-pages-artifact@v3
         with:
           path: "./build"
 
-      #3.部署在github page上
+      #4.部署在github page上
       - name: depoly
         uses: actions/deploy-pages@v4
