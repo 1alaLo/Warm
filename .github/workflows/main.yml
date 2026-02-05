@@ -26,7 +26,7 @@ jobs:
       - name: Upload HTML file
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./build/Warm.html"
+          path: "./build/index.html"
 
       #4.部署在github page上
       - name: depoly
